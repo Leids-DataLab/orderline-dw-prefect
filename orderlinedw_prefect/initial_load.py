@@ -1,16 +1,16 @@
 from prefect import task, flow
 
 from orderlinedw_scripts import oltp2staging
-
+from orderlinedw_prefect.prefect_dbt_runner import run_dbt, DBTCommands
 
 @task
-def task_oltp2staging():
+def task_oltp2staging():    
     oltp2staging.execute()
         
 
 @task
 def staging2dmsales():
-    pass
+    run_dbt(DBTCommands.RUN)
 
 
 @flow

@@ -2,6 +2,10 @@
 .vscode/
 
 
+# DBT
+dbt_packages/
+logs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
