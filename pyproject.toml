@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "orderline-dw-prefect"
+name = "orderlinedw_prefect"
 version = "0.1.0"
 description = ""
 authors = ["Mischa Barthel <barthel.m@hsleiden.nl>"]
@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 prefect = "^2.16.0"
-
+orderlinedw_scripts = { path = "./submodules/orderline-dw-scripts", develop = true }
 
 [build-system]
 requires = ["poetry-core"]
