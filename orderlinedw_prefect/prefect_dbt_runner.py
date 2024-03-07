@@ -15,7 +15,7 @@ class DBTCommands(Enum):
     SEED = "seed"
 
 # TODO Beter is het om het pad uit de orderlinedw_dbt package te halen.
-PATH_DBT_PROJECT = "submodules/orderline-dw-dbt/orderlinedw_dbt"
+PATH_DBT_PROJECT = "submodules/orderline-dw-dbt"
 
 def run_dbt(command, target="dev", models=None):
     """
