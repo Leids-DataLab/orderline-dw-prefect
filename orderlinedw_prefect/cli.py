@@ -25,7 +25,6 @@ def initialload(ctx):
         click.echo(f"Serveer de init flow voor environment TODO.")
         initial_load.initial_load_flow.serve(
             name="initial_load_deployment",
-            tags=["TODO Env"],
             version=version("orderlinedw_prefect")
         )
 
