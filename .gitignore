@@ -1,6 +1,8 @@
 # VS Code
 .vscode/
 
+# Docker .env-docker
+.env-docker
 
 # DBT
 dbt_packages/
