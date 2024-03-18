@@ -1,0 +1,12 @@
+orderline_dw_dbt:
+  target: default
+  outputs:
+    default:
+      type: sqlserver
+      driver: 'ODBC Driver 17 for SQL Server' 
+      server: "{{ env_var('DW_DB_SERVER') }}"
+      database: "{{ env_var('DW_DB_NAME') }}"
+      schema: dbt
+      user: "{{ env_var('DW_USERNAME') }}"
+      password: "{{ env_var('DW_PASSWORD') }}"
+      threads: 1
