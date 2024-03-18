@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: orderline_staging
+    schema: staging
+    tables:
+      - name: klant
+      - name: product
+      - name: productsubcategorie
+      - name: productcategorie
+      - name: bestelling
+      - name: bestellingregel
+      
