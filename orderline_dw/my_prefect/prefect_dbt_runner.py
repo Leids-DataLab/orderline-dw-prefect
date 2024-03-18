@@ -31,7 +31,7 @@ def run_dbt(command, models=None):
         result = dbt.invoke([command.value], project_dir=PATH_DBT_PROJECT, profiles_dir=PATH_DBT_PROJECT, models=models)
     else:
         logger.info(f"Roep DBT {command.value} aan.")
-        result = dbt.invoke([command.value], project_dir=PATH_DBT_PROJECT, profiles_dir=PATH_DBT_PROJECT)
+        result = dbt.invoke([command.value], profiles_dir=PATH_DBT_PROJECT)
  
     # We willen de aanroepende task laten falen als DBT niet succesvol draait.
     if not result.success:

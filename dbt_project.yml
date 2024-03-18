@@ -8,12 +8,12 @@ profile: 'orderline_dw_dbt'
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
-model-paths: ["orderline_dw_dbt/models"]
-analysis-paths: ["orderline_dw_dbt/analyses"]
-test-paths: ["orderline_dw_dbt/tests"]
-seed-paths: ["orderline_dw_dbt/seeds"]
-macro-paths: ["orderline_dw_dbt/macros"]
-snapshot-paths: ["orderline_dw_dbt/snapshots"]
+model-paths: ["orderline_dw/dbt/models"]
+analysis-paths: ["orderline/dw_dbt/analyses"]
+test-paths: ["orderline_dw/dbt/tests"]
+seed-paths: ["orderline_dw/dbt/seeds"]
+macro-paths: ["orderline_dw/dbt/macros"]
+snapshot-paths: ["orderline_dw/dbt/snapshots"]
 
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
