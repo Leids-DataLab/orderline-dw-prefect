@@ -8,8 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 prefect = "^2.16.0"
-orderlinedw_scripts = { path = "./submodules/orderline-dw-scripts", develop = true }
-orderlinedw_dbt = { path = "./submodules/orderline-dw-dbt" }
+orderline_dw_scripts = { path = "./submodules/orderline-dw-scripts", develop = true }
+orderline_dw_dbt = { path = "./submodules/orderline-dw-dbt" }
 click = "^8.1.7"
 python-dotenv = "^1.0.1"
 

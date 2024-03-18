@@ -1,0 +1,12 @@
+**/.git
+**/.gitignore
+**/.dockerignore
+**/.env
+**/.env-docker
+**/.env-example
+.gitmodules
+**/__pycache__/
+**/dbt_packages/
+**/logs/
+**/target
+.vscode/
