@@ -2,7 +2,8 @@ from importlib.metadata import version
 
 import click
 
-from orderlinedw_prefect import init as init_flow, initial_load, all as all_flow
+from orderline_dw.my_prefect import initial_load
+from orderline_dw.my_prefect import all as all_flow, init as init_flow
 
 
 @click.group()

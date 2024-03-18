@@ -1,6 +1,7 @@
 from prefect import flow
 
-from orderlinedw_prefect import init, initial_load
+from orderline_dw.my_prefect import initial_load
+from orderline_dw.my_prefect import init
 
 @flow
 def all_flow():

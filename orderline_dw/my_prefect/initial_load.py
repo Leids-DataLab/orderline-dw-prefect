@@ -1,7 +1,7 @@
 from prefect import task, flow
 
 from orderline_dw_scripts import oltp2staging
-from orderlinedw_prefect.prefect_dbt_runner import run_dbt, DBTCommands
+from orderline_dw.my_prefect.prefect_dbt_runner import run_dbt, DBTCommands
 
 @task
 def task_oltp2staging():    

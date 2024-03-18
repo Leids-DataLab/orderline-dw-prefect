@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "orderlinedw_prefect"
+name = "orderline_dw"
 version = "0.1.0"
 description = ""
 authors = ["Mischa Barthel <barthel.m@hsleiden.nl>"]
@@ -18,4 +18,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-prefect-flows = "orderlinedw_prefect.cli:main"
+prefect-flows = "orderline_dw.cli:main"

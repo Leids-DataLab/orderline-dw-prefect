@@ -1,6 +1,6 @@
 from prefect import task, flow
 
-from orderlinedw_prefect.prefect_dbt_runner import run_dbt, DBTCommands
+from orderline_dw.my_prefect.prefect_dbt_runner import run_dbt, DBTCommands
 
 @task
 def load_datum_dimensie():
