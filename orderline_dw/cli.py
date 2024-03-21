@@ -2,7 +2,7 @@ from importlib.metadata import version
 
 import click
 
-from orderline_dw.my_prefect import initial_load
+from orderline_dw.my_prefect import load
 from orderline_dw.my_prefect import all as all_flow, init as init_flow
 
 
@@ -23,14 +23,14 @@ def flow_helper(flow, mode):
         click.echo(f"Serveer de flow {flow.__name__}")
         flow.serve(
             name = f"{flow.__name__}_deployment",
-            version=version("orderlinedw_prefect")
+            version=version("orderline_dw")
         )
 
 
 @main.command()
 @click.pass_context
-def initialload(ctx):
-    flow_helper(flow=initial_load.initial_load_flow, mode=ctx.obj['mode'])
+def fullload(ctx):
+    flow_helper(flow=load.full_load_flow, mode=ctx.obj['mode'])
 
 
 @main.command()
