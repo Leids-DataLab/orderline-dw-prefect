@@ -27,6 +27,30 @@ services:
     networks:
       - orderline-dw-network
 
+
+  prefectflows:
+    build:
+      context: .
+      dockerfile: docker/flows/Dockerfile
+    depends_on:
+      - prefectserver
+    environment:
+      # OLTP database
+      OLTP_DB_SERVER: mischa-orderline-oltp-test.database.windows.net
+      OLTP_DB_NAME: orderline-oltp-test
+      OLTP_USERNAME: $OLTP_USERNAME
+      OLTP_PASSWORD: $OLTP_PASSWORD
+      # Data warehouse
+      DW_DB_SERVER: mischa-orderline-dw-run2.database.windows.net
+      DW_DB_NAME: orderline-dw
+      DW_USERNAME: $DW_USERNAME
+      DW_PASSWORD: $DW_PASSWORD
+      # Prefect
+      PREFECT_LOGGING_EXTRA_LOGGERS: orderline_dw
+      PREFECT_API_URL: http://prefectserver:4200/api
+    networks:
+      - orderline-dw-network
+
 networks:
   orderline-dw-network:
 
