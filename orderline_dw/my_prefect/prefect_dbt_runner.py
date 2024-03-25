@@ -17,7 +17,7 @@ class DBTCommands(Enum):
 # TODO Beter is het om het pad uit de orderlinedw_dbt package te halen.
 PATH_DBT_PROJECT = "."
 
-def run_dbt(command, models=None):
+def run_dbt(command, models=None, vars={}):
     """
     Voert het DBT commando uit op een environment.
     :param command: Het DBT commando dat gerund moet worden.
@@ -26,12 +26,8 @@ def run_dbt(command, models=None):
     """
     dbt = dbtRunner()
     logger = get_run_logger()
-    if models:
-        logger.info(f"Roep DBT {command.value} aan met models={models}.")
-        result = dbt.invoke([command.value], project_dir=PATH_DBT_PROJECT, profiles_dir=PATH_DBT_PROJECT, models=models)
-    else:
-        logger.info(f"Roep DBT {command.value} aan.")
-        result = dbt.invoke([command.value], profiles_dir=PATH_DBT_PROJECT)
+    logger.info(f"Roep DBT {command.value} aan met models={models} en vars={vars}.")
+    result = dbt.invoke([command.value], models=models, vars=vars)
  
     # We willen de aanroepende task laten falen als DBT niet succesvol draait.
     if not result.success:

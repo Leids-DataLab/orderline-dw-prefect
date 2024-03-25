@@ -38,4 +38,4 @@ COPY . .
 RUN poetry install
 
 # Serveer de flow 'all' bij het opstarten van de container.
-CMD ["poetry", "run", "prefect-flows", "--mode", "serve", "initialload"]
+CMD ["poetry", "run", "prefect-flows", "--mode", "serve", "serveallflows"]

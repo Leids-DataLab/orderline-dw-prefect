@@ -1,9 +1,10 @@
 from importlib.metadata import version
 
 import click
+from prefect import serve
 
-from orderline_dw.my_prefect import initial_load
-from orderline_dw.my_prefect import all as all_flow, init as init_flow
+from orderline_dw.my_prefect import init_and_full_load as init_and_full_load_flow, load
+from orderline_dw.my_prefect import init as init_flow
 
 
 @click.group()
@@ -23,14 +24,20 @@ def flow_helper(flow, mode):
         click.echo(f"Serveer de flow {flow.__name__}")
         flow.serve(
             name = f"{flow.__name__}_deployment",
-            version=version("orderlinedw_prefect")
+            version=version("orderline_dw")
         )
 
 
 @main.command()
 @click.pass_context
-def initialload(ctx):
-    flow_helper(flow=initial_load.initial_load_flow, mode=ctx.obj['mode'])
+def fullload(ctx):
+    flow_helper(flow=load.full_load_flow, mode=ctx.obj['mode'])
+
+
+@main.command()
+@click.pass_context
+def incrementalload(ctx):
+    flow_helper(flow=load.incremental_load_flow, mode=ctx.obj['mode'])
 
 
 @main.command()
@@ -41,8 +48,21 @@ def init(ctx):
 
 @main.command()
 @click.pass_context
-def all(ctx):
-    flow_helper(flow=all_flow.all_flow, mode=ctx.obj['mode'])
+def initandfullload(ctx):
+    flow_helper(flow=init_and_full_load_flow.init_and_full_load_flow, mode=ctx.obj['mode'])
+
+
+@main.command()
+@click.pass_context
+def serveallflows(ctx):
+    d1 = init_flow.init_flow.to_deployment(name = "init_flow_deployment", version=version("orderline_dw"))
+    d2 = load.full_load_flow.to_deployment(name = "full_load_flow_deployment", version=version("orderline_dw"))
+    d3 = load.incremental_load_flow.to_deployment(name = "incremental_load_flow_deployment", version=version("orderline_dw"))
+    d4 = init_and_full_load_flow.init_and_full_load_flow.to_deployment(name = "init_and_full_load_flow_deployment", version=version("orderline_dw"))
+    serve(d1, d2, d3, d4)
+
+
+
 
 
 if __name__ == "__main__":
