@@ -10,11 +10,13 @@ def task_oltp2staging():
 
 @task
 def staging2dmsales_full():
+    run_dbt(DBTCommands.SNAPSHOT)
     run_dbt(DBTCommands.RUN, vars={"sales_materialization": "table"})
 
 
 @task
 def staging2dmsales_incremental():
+    run_dbt(DBTCommands.SNAPSHOT)
     run_dbt(DBTCommands.RUN)
 
 

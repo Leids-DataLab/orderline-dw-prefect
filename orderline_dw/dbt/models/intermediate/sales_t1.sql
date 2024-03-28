@@ -11,6 +11,8 @@ LEFT JOIN {{ source('orderline_staging', 'bestellingregel') }} as bestellingrege
     ON bestelling.bestellingnummer = bestellingregel.bestellingnummer
 LEFT JOIN {{ ref("klant") }} as klant
     ON bestelling.klantnummer = klant.klantnummer
+    -- TODO Mogelijk is het beter om met bestelling.bestelmoment en klant.geldigVanaf en klant.geldigTot te werken.
+    AND klant.isGeldig = 1
 LEFT JOIN {{ ref('product') }} as product
     ON bestellingregel.productCode = product.code
 LEFT JOIN {{ ref('DatumDimensie') }} as DatumDimensie

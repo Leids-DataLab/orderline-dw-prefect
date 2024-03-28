@@ -1,5 +1,4 @@
 SELECT
     klantnummer,
-    geboortedatum,
-    woonplaats
+    geboortedatum
 FROM {{ source('orderline_staging', 'klant') }};

@@ -13,6 +13,7 @@ from dbt.cli.main import dbtRunner
 class DBTCommands(Enum):
     RUN = "run"
     SEED = "seed"
+    SNAPSHOT = "snapshot"
 
 # TODO Beter is het om het pad uit de orderlinedw_dbt package te halen.
 PATH_DBT_PROJECT = "."
@@ -31,6 +32,7 @@ def run_dbt(command, models=None, vars={}):
  
     # We willen de aanroepende task laten falen als DBT niet succesvol draait.
     if not result.success:
+        # @TODO Dit werkt niet goed als DBT fouten aantreft in de SQL. Dan is result.exception niet van het type BaseException.
         raise result.exception
 
     # Als de task wel succesvol is, schrijf het resultaat naar de log.
