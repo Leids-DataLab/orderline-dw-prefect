@@ -33,5 +33,5 @@ def incremental_load_flow():
 
 
 if __name__ == "__main__":
-    # full_load_flow()
-    incremental_load_flow()
+    full_load_flow()
+    # incremental_load_flow()

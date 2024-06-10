@@ -12,6 +12,6 @@
 SELECT
     klantnummer,
     woonplaats
-FROM {{ source('orderline_staging', 'klant') }} -- Verwijzing naar de bron- of stagingmodel van Klant
+FROM {{ source('orderline_staging', 'klant') }} 
 
 {% endsnapshot %}
