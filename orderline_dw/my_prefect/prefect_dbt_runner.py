@@ -14,9 +14,7 @@ class DBTCommands(Enum):
     RUN = "run"
     SEED = "seed"
     SNAPSHOT = "snapshot"
-
-# TODO Beter is het om het pad uit de orderlinedw_dbt package te halen.
-PATH_DBT_PROJECT = "."
+    
 
 def run_dbt(command, models=None, vars={}):
     """

@@ -17,6 +17,9 @@ DATABASES_CONNECTION_STRING_DW = None
 
 
 def load():
+    """
+    Laadt de config parameters uit de environment. Maakt gebruik van dotenv.
+    """
     global DATABASES_CONNECTION_STRING_DW, DATABASES_CONNECTION_STRING_OLTP
 
     dotenv.load_dotenv()

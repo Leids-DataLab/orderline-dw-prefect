@@ -23,10 +23,6 @@ def _copy_tables(engine_oltp, engine_dw):
 
 
 def execute():
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s - %(levelname)s - %(message)s',
-                        datefmt='%Y-%m-%d %H:%M:%S')
-
     engine_oltp = sa.create_engine(config.DATABASES_CONNECTION_STRING_OLTP)
     engine_dw = sa.create_engine(config.DATABASES_CONNECTION_STRING_DW, fast_executemany=True)
     try:
@@ -37,4 +33,8 @@ def execute():
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
+
     execute()

@@ -1,3 +1,6 @@
+"""
+Dit is de CLI voor deze package. Hiermee kun je vanuit de CLI flows runnen of serven.
+"""
 from importlib.metadata import version
 
 import click
@@ -17,6 +20,11 @@ def main(ctx, mode):
     
 
 def flow_helper(flow, mode):
+    """
+    Deze functie runt of servet de meegegeven flow.
+    :param flow: De flow.
+    :param mode: Bepaalt of de flow gerund of geserved wordt.
+    """
     if mode == 'run':
         click.echo(f"Run de flow {flow.__name__}")
         flow()
@@ -60,9 +68,6 @@ def serveallflows(ctx):
     d3 = load.incremental_load_flow.to_deployment(name = "incremental_load_flow_deployment", version=version("orderline_dw"))
     d4 = init_and_full_load_flow.init_and_full_load_flow.to_deployment(name = "init_and_full_load_flow_deployment", version=version("orderline_dw"))
     serve(d1, d2, d3, d4)
-
-
-
 
 
 if __name__ == "__main__":
