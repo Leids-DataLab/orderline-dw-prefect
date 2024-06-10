@@ -10,11 +10,13 @@ def task_oltp2staging():
 
 @task
 def staging2dmsales_full():
+    run_dbt(DBTCommands.SNAPSHOT)
     run_dbt(DBTCommands.RUN, vars={"sales_materialization": "table"})
 
 
 @task
 def staging2dmsales_incremental():
+    run_dbt(DBTCommands.SNAPSHOT)
     run_dbt(DBTCommands.RUN)
 
 
@@ -31,5 +33,5 @@ def incremental_load_flow():
 
 
 if __name__ == "__main__":
-    # full_load_flow()
-    incremental_load_flow()
+    full_load_flow()
+    # incremental_load_flow()

@@ -20,7 +20,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 vars:
-  sales_materialization: 'incremental'
+  sales_materialization: 'table'
 
 models:
   orderline_dw_dbt:

@@ -6,7 +6,7 @@ FROM python:3.11-slim
 #     rm -rf /var/lib/apt/lists/*
 
 # Install prefect
-# TODO versie kiezen
+# RUN pip install prefect==2.16.0
 RUN pip install prefect
 
 EXPOSE 4200
